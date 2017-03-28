@@ -1,7 +1,14 @@
 package com.mrd.altassianchatbot.parser;
 
-import org.json.JSONArray;
+import com.mrd.altassianchatbot.controller.ChatController;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -44,9 +51,23 @@ public class UrlRule implements Rule {
         if(list != null && list.size() > 0) {
             jsonArray = new JSONArray();
             for(String mention:list) {
-                jsonArray.put(mention);
+                Document doc = null;
+                JSONObject url = new JSONObject();
+                try {
+                    doc = Jsoup.connect(mention).get();
+                    String title = doc.title();
+                    url.put("url",mention);
+                    url.put("title",title);
+                    jsonArray.put(url);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
         }
         return jsonArray;
     }
+
 }
