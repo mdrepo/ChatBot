@@ -56,6 +56,7 @@ public class UrlRule implements Rule {
                 JSONObject url = new JSONObject();
                 try {
                     url.put("url",mention);
+                    url.put("title","Could not fetch");
                     doc = Jsoup.connect(mention).get();
                     String title = doc.title();
 

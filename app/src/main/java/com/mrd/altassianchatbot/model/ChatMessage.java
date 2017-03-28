@@ -12,6 +12,7 @@ public class ChatMessage {
     public boolean isSelected = false;
     public String msgid;
     public boolean isMine;
+    public boolean isReplying = false;
 
     public ChatMessage(String messageString,boolean isMINE) {
         body = messageString;

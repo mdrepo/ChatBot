@@ -29,5 +29,6 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$supportVersion"
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'org.jsoup:jsoup:1.10.2'
+    compile 'com.github.bhargavms:DotLoader:1.0.3'
     testCompile 'junit:junit:4.12'
 }
