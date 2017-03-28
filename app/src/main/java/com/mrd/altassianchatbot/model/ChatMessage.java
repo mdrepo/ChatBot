@@ -9,14 +9,14 @@ import java.util.Random;
 public class ChatMessage {
 
     public String body;
-    public String Date, Time;
+    public boolean isSelected = false;
     public String msgid;
     public boolean isMine;
 
     public ChatMessage(String messageString,boolean isMINE) {
         body = messageString;
         isMine = isMINE;
-        msgid = String.format("%02d", new Random().nextInt(100));;
+        msgid = String.format("%02d", new Random().nextInt(100));
     }
 
     public void setMsgID() {

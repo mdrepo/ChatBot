@@ -20,10 +20,12 @@ import java.util.ArrayList;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatMessageVH> {
 
+    private final OnLongClickListener listener;
     private ArrayList<ChatMessage> lstChatMessages;
 
-    public ChatAdapter(ArrayList<ChatMessage> messages) {
+    public ChatAdapter(ArrayList<ChatMessage> messages,OnLongClickListener listener) {
         this.lstChatMessages = messages;
+        this.listener = listener;
     }
     @Override
     public ChatMessageVH onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -55,7 +57,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatMessageVH>
         return lstChatMessages.size();
     }
 
-    public class ChatMessageVH extends RecyclerView.ViewHolder {
+    public class ChatMessageVH extends RecyclerView.ViewHolder implements View.OnLongClickListener {
 
         private TextView txtMsg;
         private LinearLayout vwParent;
@@ -66,6 +68,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatMessageVH>
             txtMsg = (TextView) itemView.findViewById(R.id.message_text);
             vwBubble = (LinearLayout) itemView.findViewById(R.id.bubble_layout);
             vwParent = (LinearLayout) itemView.findViewById(R.id.bubble_layout_parent);
+            itemView.setOnLongClickListener(this);
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            if(listener != null) {
+                listener.OnLongClick(getAdapterPosition(),lstChatMessages.get(getAdapterPosition()));
+            }
+            return false;
         }
     }
 }

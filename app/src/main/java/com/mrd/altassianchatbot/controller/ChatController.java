@@ -49,7 +49,8 @@ public class ChatController extends Controller {
         workerHandler.post(new Runnable() {
             @Override
             public void run() {
-                String response = Parser.stemsByRule(message);
+                Parser parser = new Parser();
+                String response = parser.stemsByRule(message).getJSON().formatted();
                 notifyOutboxHandlers(MESSAGE_PARSE,0,0,response);
             }
         });

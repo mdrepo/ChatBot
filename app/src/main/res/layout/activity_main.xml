@@ -34,11 +34,13 @@
             <EditText
                 android:id="@+id/ed_msg"
                 android:layout_width="252dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
+                android:layout_height="match_parent"
                 android:layout_weight="0.72"
                 android:ems="10"
+                android:lines="1"
+                android:maxLines="1"
+                android:imeOptions="actionSend"
+                android:singleLine="true"
                 android:maxHeight="80dp" />
 
             <ImageButton

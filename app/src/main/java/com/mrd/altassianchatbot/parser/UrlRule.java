@@ -9,6 +9,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 /**
@@ -54,15 +55,18 @@ public class UrlRule implements Rule {
                 Document doc = null;
                 JSONObject url = new JSONObject();
                 try {
+                    url.put("url",mention);
                     doc = Jsoup.connect(mention).get();
                     String title = doc.title();
-                    url.put("url",mention);
+
                     url.put("title",title);
                     jsonArray.put(url);
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                } catch (IllegalArgumentException e) {
+                    jsonArray.put(url);
                 }
 
             }
