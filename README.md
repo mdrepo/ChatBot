@@ -9,11 +9,8 @@ For now, parsing is done for 4 rules -
 
 Parser will respond with json having list of mentions, emoticons, urls and hash.
 
-![Chatbot Screenshot 1](https://www.dropbox.com/s/niucfyy5fzupfti/chatbot_parser1.png?dl=1)
+![Chatbot Screenshot 1](https://www.dropbox.com/s/z9ln1dqmdk5vfza/chatbot-parser.jpg?dl=1)
 
-![Chatbot screenshot 2](https://www.dropbox.com/s/071pp2ry7mm0a16/chatbot_parser_2.png?dl=1)
-
-![Chatbot screnshot 3](https://www.dropbox.com/s/kmq44gf7yt45334/chatbot_parser_3.png?dl=1)
 
 
 
