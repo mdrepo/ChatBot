@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
  */
 public class Parser {
 
-    HashMap<String, ArrayList<String>> patternsFound = new HashMap<>();
+    public HashMap<String, ArrayList<String>> patternsFound = new HashMap<>();
     JSONObject responseObject = new JSONObject();
 
     public String formatted() {
