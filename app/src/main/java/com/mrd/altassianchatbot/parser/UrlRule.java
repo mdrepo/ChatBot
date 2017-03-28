@@ -60,12 +60,13 @@ public class UrlRule implements Rule {
                     String title = doc.title();
 
                     url.put("title",title);
-                    jsonArray.put(url);
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                } finally {
                     jsonArray.put(url);
                 }
 
